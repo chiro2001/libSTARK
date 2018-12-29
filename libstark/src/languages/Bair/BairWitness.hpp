@@ -2,7 +2,7 @@
 #define Bair_WITNESS_HPP__
 
 #include <algebraLib/FieldElement.hpp>
-#include "common/langCommon/Sequence.hpp"
+#include "../../common/langCommon/Sequence.hpp"
 
 #include <memory>
 #include <vector>

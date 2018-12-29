@@ -1,5 +1,5 @@
 #include "BairWitnessChecker.hpp"
-#include "common/Utils/TaskReporting.hpp"
+#include "../../common/Utils/TaskReporting.hpp"
 
 using std::vector;
 using Algebra::FieldElement;

@@ -1,6 +1,6 @@
 #include "ConstraintsSys.hpp"
-#include "common/langCommon/Sequence.hpp"
-#include "common/Infrastructure/Infrastructure.hpp"
+#include "../../common/langCommon/Sequence.hpp"
+#include "../../common/Infrastructure/Infrastructure.hpp"
 
 #include <vector>
 #include <memory>

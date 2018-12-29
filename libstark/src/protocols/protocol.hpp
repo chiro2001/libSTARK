@@ -1,10 +1,10 @@
 #ifndef PROTOCOL_HPP__
 #define PROTOCOL_HPP__
 
-#include "languages/Bair/BairInstance.hpp"
-#include "languages/Bair/BairWitness.hpp"
-#include "languages/Acsp/AcspInstance.hpp"
-#include "languages/Acsp/AcspWitness.hpp"
+#include "../languages/Bair/BairInstance.hpp"
+#include "../languages/Bair/BairWitness.hpp"
+#include "../languages/Acsp/AcspInstance.hpp"
+#include "../languages/Acsp/AcspWitness.hpp"
 #include <algebraLib/FieldElement.hpp>
 #include <vector>
 #include <map>

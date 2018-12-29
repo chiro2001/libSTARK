@@ -13,11 +13,11 @@
 #define  __Acsp_Instance_HPP
 
 #include "AcspWitness.hpp"
-#include "common/langCommon/Sequence.hpp"
-#include "common/Infrastructure/Infrastructure.hpp"
+#include "../../common/langCommon/Sequence.hpp"
+#include "../../common/Infrastructure/Infrastructure.hpp"
 #include <algebraLib/FieldElement.hpp>
 #include <algebraLib/UnivariatePolynomialGeneral.hpp>
-#include "common/Algebra/FiniteSetInterface.hpp"
+#include "../../common/Algebra/FiniteSetInterface.hpp"
 #include <vector>
 #include <memory>
 #include <cassert>

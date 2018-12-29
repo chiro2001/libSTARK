@@ -2,8 +2,8 @@
 #define ACP_IOP_VERIFIER_QUERIES_GEN_HPP__
 
 #include "../common_details/common.hpp"
-#include "protocols/common/verifier.hpp"
-#include "languages/Acsp/AcspInstance.hpp"
+#include "../../common/verifier.hpp"
+#include "../../../languages/Acsp/AcspInstance.hpp"
 #include <algebraLib/FieldElement.hpp>
 
 #include <vector>
