@@ -5,6 +5,7 @@
 
 #include <protocols/protocol.hpp>
 #include "Fsrs.hpp"
+#include "Fsrs_wrapper.hpp"
 
 using namespace simple_fsrs;
 using namespace simple_fsrs::ACSP_FOR_FSRS;

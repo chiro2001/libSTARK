@@ -5,13 +5,13 @@ MKDIR				:= $(shell $(WHICH) mkdir)
 DIRNAME				:= $(shell $(WHICH) dirname)
 
 INCFLAGS=-I. -I$(LIBSTARKINC) -I$(ALGEBRAINC) -I$(FFTINC)
-LIBS=						\
-	stark					\
-	algebralib				\
-	FFT
+# LIBS=						\
+# 	stark					\
+# 	algebralib				\
+# 	FFT
 
-LIBFLAGS=$(addprefix -l, $(LIBS))
-LNKFLAGS=-L"$(ALGEBRALNKDIR)" -L"$(FFTLIBLNKDIR)" -L"$(LIBSTARKLINKDIR)" -lgomp
+# LIBFLAGS=$(addprefix -l, $(LIBS))
+# LNKFLAGS=-L"$(ALGEBRALNKDIR)" -L"$(FFTLIBLNKDIR)" -L"$(LIBSTARKLINKDIR)" -lgomp
 
 SRCDIR  = .
 SRCEXT  = cpp
@@ -21,16 +21,18 @@ SRCS    := $(shell find $(SRCDIR) -name '*.$(SRCEXT)')
 SRCDIRS := $(shell find . -name '*.$(SRCEXT)' -exec dirname {} \; | uniq)
 OBJS    := $(patsubst %.$(SRCEXT),$(OBJDIR)/%.o,$(SRCS))
 
-TARGET=$(BLDDIR)/fs-rs
-DST=$(EXEDIR)/fs-rs
+# TARGET=$(BLDDIR)/fs-rs
+TARGET=$(BLDDIR)/fs-rs.a
+# DST=$(EXEDIR)/fs-rs
 all: $(TARGET)
 
 $(TARGET): buildrepo $(OBJS)
 #	@echo 'Building target: $@'
 #	@echo 'Invoking: GCC Linker'
-	$(CC) -o "$@" $(OBJS) -Xpreprocessor -fopenmp $(LNKFLAGS) $(LIBFLAGS)
+	# $(CC) -o "$@" $(OBJS) -Xpreprocessor -fopenmp $(LNKFLAGS) $(LIBFLAGS)
 #	@echo 'Finished building target: $@'
-	cp $(TARGET) $(DST)
+	# cp $(TARGET) $(DST)
+	ar -r  "$@" $(OBJS) $(LIBS)
 
 $(OBJDIR)/%.o: %.$(SRCEXT)
 #	@echo "$(CC) $(CFLAGS) $(CPPFLAGS) $(INCFLAGS) -c -o "$@" "$<""
@@ -38,8 +40,8 @@ $(OBJDIR)/%.o: %.$(SRCEXT)
 
 clean:
 	$(RM) -f $(TARGET) $(OBJS) $(DEPS)
-	$(RM) -rf $(OBJDIR)
-	$(RM) $(DST)
+	# $(RM) -rf $(OBJDIR)
+	# $(RM) $(DST)
 
 buildrepo:
 	$(call make-repo)
