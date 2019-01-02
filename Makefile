@@ -15,6 +15,7 @@ GADGETLIB3_DIR			:= $(WD)/$(GADGETLIB3_SRC_DIR)
 TINYRAM_DIR				:= $(WD)/tinyram/stark-tinyram
 DPM_DIR					:= $(WD)/starkdpm
 ADD_DIR					:= $(WD)/fibonacchiseq
+FSRS_DIR				:= $(WD)/fsrs
 FFTLIB_DIR				:= $(WD)/algebra/FFT
 
 ALGEBRALIB_TESTS_DIR	:= $(WD)/algebra/algebralib-tests
@@ -25,6 +26,7 @@ TINYRAM_TESTS_DIR		:= $(WD)/tinyram/stark-tinyram-tests
 		libstark libstark-clean \
 		stark-dpm stark-dpm-clean \
 		fibonacchi-seq fibonacchi-seq-clean \
+		fs-rs fs-rs-clean \
 		stark-tinyram stark-tinyram-clean \
 		fft fft-clean \
 		algebralib algebralib-clean \
@@ -34,7 +36,7 @@ TINYRAM_TESTS_DIR		:= $(WD)/tinyram/stark-tinyram-tests
 		stark-tinyram-tests stark-tinyram-tests-clean\
 		clean
 
-default: stark-dpm fibonacchi-seq stark-tinyram
+default: stark-dpm fibonacchi-seq fs-rs stark-tinyram
 
 tests: libstark-tests algebralib-tests stark-tinyram-tests
 
@@ -77,6 +79,22 @@ fibonacchi-seq: fft algebralib libstark
 fibonacchi-seq-clean:
 	$(MAKE) clean -C $(ADD_DIR) \
 		BLDDIR=$(BLDDIR)/fibonacchiseq \
+		EXEDIR=$(EXE_DIR)
+
+fs-rs: fft algebralib libstark
+	$(MAKE) -C $(ADD_DIR) \
+		BLDDIR=$(BLDDIR)/fsrs                       \
+		EXEDIR=$(EXE_DIR) \
+		FFTINC=$(FFTLIB_DIR)/src \
+		FFTLIBLNKDIR=$(BLDDIR)/fft					\
+		ALGEBRAINC=$(ALGEBRALIB_DIR)/headers \
+		ALGEBRALNKDIR=$(BLDDIR)/algebralib \
+		LIBSTARKINC=$(LIBSTARK_DIR)/src \
+		LIBSTARKLINKDIR=$(BLDDIR)/libstark 
+
+fs-rs-clean:
+	$(MAKE) clean -C $(ADD_DIR) \
+		BLDDIR=$(BLDDIR)/fsrs \
 		EXEDIR=$(EXE_DIR)
 
 stark-tinyram: gadgetlib fft algebralib libstark
@@ -163,6 +181,6 @@ libstark-tests: fft algebralib libstark
 libstark-tests-clean:
 	$(MAKE) clean -C $(STARK_TESTS_DIR) BLDDIR=$(BLDDIR)/libstark-tests
 
-clean: gadgetlib-clean stark-dpm-clean stark-tinyram-clean libstark-clean fft-clean algebralib-clean \
+clean: gadgetlib-clean stark-dpm-clean fibonacchi-seq-clean fs-rs-clean stark-tinyram-clean libstark-clean fft-clean algebralib-clean \
 	   algebralib-tests-clean libstark-tests-clean stark-tinyram-tests-clean
 	$(RM) -r $(BLDDIR)
