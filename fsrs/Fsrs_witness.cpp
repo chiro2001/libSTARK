@@ -1,7 +1,7 @@
 #include "Fsrs.hpp"
 #include "common/Utils/ErrorHandling.hpp"
 
-namespace simple_FSRS{
+namespace simple_fsrs{
 namespace ACSP_FOR_FSRS{
 
     using std::vector;

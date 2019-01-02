@@ -82,7 +82,7 @@ fibonacchi-seq-clean:
 		EXEDIR=$(EXE_DIR)
 
 fs-rs: fft algebralib libstark
-	$(MAKE) -C $(ADD_DIR) \
+	$(MAKE) -C $(FSRS_DIR) \
 		BLDDIR=$(BLDDIR)/fsrs                       \
 		EXEDIR=$(EXE_DIR) \
 		FFTINC=$(FFTLIB_DIR)/src \
@@ -93,7 +93,7 @@ fs-rs: fft algebralib libstark
 		LIBSTARKLINKDIR=$(BLDDIR)/libstark 
 
 fs-rs-clean:
-	$(MAKE) clean -C $(ADD_DIR) \
+	$(MAKE) clean -C $(FSRS_DIR) \
 		BLDDIR=$(BLDDIR)/fsrs \
 		EXEDIR=$(EXE_DIR)
 
