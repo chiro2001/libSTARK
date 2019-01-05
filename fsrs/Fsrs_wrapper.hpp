@@ -1,7 +1,3 @@
-// #ifndef __ACSP_FOR_FSRS_HPP__
-// #define __ACSP_FOR_FSRS_HPP__
-
-
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -12,5 +8,3 @@ extern "C" {
 }
 #endif
 
-
-// #endif // __ACSP_FOR_FSRS_HPP__

@@ -17,17 +17,6 @@ using std::stoul;
 
 using std::vector;
 
-// // a, b: secret numbers of the initial values of a fibonacci sequence for some sequence length
-// void execute(const unsigned int a, const unsigned int b, const unsigned int securityParameter) {
-    
-//     libstark::BairInstance bair_instance = buildBairInstance(a, b);
-//     Fsrs::evalp::setParams(1234);
-//     libstark::BairWitness bair_witness = buildBairWitness(a, b);
-
-//     std::cout << "verify:" << libstark::BairWitnessChecker::verify(bair_instance, bair_witness) << std::endl;   
-//     libstark::Protocols::executeProtocol(bair_instance, bair_witness, securityParameter, false, false, true);
-// }
-
 int main(int argc, char *argv[]) {
     if(argc != 3) {
         cout << "please pass 2 arguments." << endl;
