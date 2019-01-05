@@ -1,4 +1,5 @@
 # libSTARK-exmaple
+This is a wrapper implementation for [STARK in Rust](https://github.com/osuketh/stark-rust).
 
 ## Compliation on macOS:
 ```
